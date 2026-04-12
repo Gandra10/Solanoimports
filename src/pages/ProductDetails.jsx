@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { MessageCircle, ShoppingBag, ArrowLeft, Star, ShieldCheck, Truck } from 'lucide-react';
-import { PRODUCTS } from '../utils/products';
+import { products } from '../utils/products';
 import { useCart } from '../context/CartContext';
 import { motion } from 'framer-motion';
 
 const ProductDetails = () => {
   const { id } = useParams();
   const { addToCart } = useCart();
-  const product = PRODUCTS.find(p => p.id === parseInt(id));
+  const product = products.find(p => p.id === parseInt(id));
   const [selectedSize, setSelectedSize] = useState(null);
   const [error, setError] = useState('');
 

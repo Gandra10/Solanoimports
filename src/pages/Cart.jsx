@@ -129,7 +129,7 @@ const Cart = () => {
   const notifyWhatsApp = () => {
     const deliveryDetail = deliveryMethod === 'pickup' 
       ? '🛍️ RETIRADA NA LOJA' 
-      : `🚀 ENTREGA\n📌 Rua: ${shippingInfo.rua}, ${shippingInfo.numero}\n🏘️ Bairro: ${shippingInfo.bairro}\n💰 Frete: ${isFreeShipping ? 'Grátis' : 'R$ ' + shippingFee}`;
+      : `🚀 ENTREGA\n📌 Rua: ${shippingInfo.rua}, ${shippingInfo.numero}\n🏘️ Bairro: ${shippingInfo.bairro}\n📱 Telefone: ${shippingInfo.telefone}\n💰 Frete: ${isFreeShipping ? 'Grátis' : 'R$ ' + shippingFee}`;
 
     const message = `🚀 *NOVO PEDIDO - SOLANO IMPORTS*\n\n` +
       `📦 *PRODUTOS:*\n` +
@@ -305,7 +305,7 @@ const Cart = () => {
 
                            <div className="grid grid-cols-3 gap-4">
                               <div className="col-span-2 space-y-2">
-                                <label className="text-[10px] font-black uppercase tracking-widest text-white/50">Rua</label>
+                                <label className="text-[10px] font-black uppercase tracking-widest text-white/50">Rua / Endereço</label>
                                 <input 
                                   required
                                   type="text" 
@@ -326,6 +326,17 @@ const Cart = () => {
                                   className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 outline-none focus:border-white transition-all text-white" 
                                 />
                               </div>
+                           </div>
+                           <div className="space-y-2">
+                             <label className="text-[10px] font-black uppercase tracking-widest text-white/50">WhatsApp para Contato</label>
+                             <input 
+                               required
+                               type="text" 
+                               value={shippingInfo.telefone}
+                               onChange={(e) => setShippingInfo({ ...shippingInfo, telefone: e.target.value })}
+                               placeholder="(65) 99999-9999"
+                               className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 outline-none focus:border-white transition-all text-white" 
+                             />
                            </div>
                         </div>
 

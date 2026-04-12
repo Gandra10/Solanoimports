@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Search, Filter, SlidersHorizontal } from 'lucide-react';
-import { PRODUCTS } from '../utils/products';
+import { products, categories } from '../utils/products';
 import ProductCard from '../components/product/ProductCard';
 
 const Catalog = () => {
@@ -9,7 +9,7 @@ const Catalog = () => {
   const [sortBy, setSortBy] = useState('Relevância');
 
   const filteredProducts = useMemo(() => {
-    return PRODUCTS
+    return products
       .filter(p => searchTerm === '' || p.name.toLowerCase().includes(searchTerm.toLowerCase()))
       .filter(p => filterType === 'Todos' || p.category.toLowerCase() === filterType.toLowerCase())
       .sort((a, b) => {
@@ -53,7 +53,7 @@ const Catalog = () => {
                 value={filterType}
                 onChange={(e) => setFilterType(e.target.value)}
               >
-                {['Todos', 'Campo', 'Society', 'Futsal'].map(cat => (
+                {categories.map(cat => (
                   <option key={cat} value={cat}>{cat}</option>
                 ))}
               </select>

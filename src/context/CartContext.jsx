@@ -15,6 +15,7 @@ export const CartProvider = ({ children }) => {
     bairro: '',
     rua: '',
     numero: '',
+    telefone: '',
     cidade: 'Cuiabá',
     regiaoValue: 0
   });

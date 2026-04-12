@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { ChevronRight, ShieldCheck, Truck, RotateCcw } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ProductCard from '../components/product/ProductCard';
-import { PRODUCTS } from '../utils/products';
+import { products } from '../utils/products';
 
 const Home = () => {
-  const featuredProducts = PRODUCTS.slice(0, 4);
+  const featuredProducts = products.slice(0, 4);
 
   return (
     <div className="flex flex-col">
@@ -72,13 +72,11 @@ const Home = () => {
             </div>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="flex justify-center">
             {[
-              { title: "Campo", img: "/campo.png", count: "42 modelos" },
-              { title: "Society", img: "/society.png", count: "28 modelos" },
-              { title: "Futsal", img: "/futsal.png", count: "15 modelos" }
+              { title: "Campo", img: "/campo.png", count: "8 modelos" }
             ].map((cat, i) => (
-              <Link key={i} to={`/catalogo?type=${cat.title.toLowerCase()}`} className="group relative h-80 rounded-3xl overflow-hidden">
+              <Link key={i} to={`/catalogo?type=${cat.title.toLowerCase()}`} className="group relative h-80 w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl">
                 <img src={cat.img} alt={cat.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors"></div>
                 <div className="absolute bottom-8 left-8">
