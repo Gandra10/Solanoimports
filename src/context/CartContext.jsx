@@ -10,6 +10,15 @@ export const CartProvider = ({ children }) => {
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
+  const [deliveryMethod, setDeliveryMethod] = useState('delivery'); // 'delivery' or 'pickup'
+  const [shippingInfo, setShippingInfo] = useState({
+    bairro: '',
+    rua: '',
+    numero: '',
+    cidade: 'Cuiabá',
+    regiaoValue: 0
+  });
+
   useEffect(() => {
     localStorage.setItem('solano_cart', JSON.stringify(cart));
   }, [cart]);
@@ -39,11 +48,37 @@ export const CartProvider = ({ children }) => {
     ));
   };
 
-  const cartTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+  const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
   const cartCount = cart.reduce((count, item) => count + item.quantity, 0);
 
+  // Promoção: 2 por 600
+  const promoDiscount = Math.floor(cartCount / 2) * 30;
+  
+  // Regra de Frete Grátis > 200 (DESABILITADO POR ENQUANTO)
+  const isFreeShipping = false; 
+  
+  // Cálculo do Frete
+  const shippingFee = (deliveryMethod === 'pickup') ? 0 : shippingInfo.regiaoValue;
+  
+  const cartTotal = subtotal - promoDiscount + shippingFee;
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, cartTotal, cartCount }}>
+    <CartContext.Provider value={{ 
+      cart, 
+      addToCart, 
+      removeFromCart, 
+      updateQuantity, 
+      cartTotal, 
+      cartCount,
+      subtotal,
+      promoDiscount,
+      deliveryMethod,
+      setDeliveryMethod,
+      shippingInfo,
+      setShippingInfo,
+      shippingFee,
+      isFreeShipping
+    }}>
       {children}
     </CartContext.Provider>
   );

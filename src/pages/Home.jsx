@@ -35,9 +35,9 @@ const Home = () => {
               <Link to="/catalogo" className="btn-primary flex items-center gap-2">
                 COMPRAR AGORA <ChevronRight className="w-5 h-5" />
               </Link>
-              <button className="px-8 py-3 border border-white border-opacity-20 rounded-full font-bold hover:bg-white hover:text-black transition-all">
+              <Link to="/catalogo" className="px-8 py-3 border border-white border-opacity-20 rounded-full font-bold hover:bg-white hover:text-black transition-all flex items-center">
                 VER NOVIDADES
-              </button>
+              </Link>
             </div>
           </motion.div>
 

@@ -37,7 +37,7 @@ const ProductDetails = () => {
   return (
     <div className="pt-32 pb-24">
       <div className="container mx-auto px-6">
-        <Link to="/catalogo" className="inline-flex items-center gap-2 text-light/50 hover:text-secondary mb-8 transition-colors group">
+        <Link to="/catalogo" className="inline-flex items-center gap-2 text-light/50 hover:text-white mb-8 transition-colors group">
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Voltar ao catálogo
         </Link>
 
@@ -67,7 +67,7 @@ const ProductDetails = () => {
             className="flex flex-col"
           >
             <div className="flex items-center gap-2 mb-4">
-              <span className="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-black uppercase">
+              <span className="bg-white/10 text-white px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest border border-white/10">
                 {product.category}
               </span>
               <div className="flex items-center gap-1 text-yellow-400">
@@ -98,8 +98,8 @@ const ProductDetails = () => {
                     onClick={() => { setSelectedSize(size); setError(''); }}
                     className={`h-12 flex items-center justify-center rounded-xl font-bold transition-all ${
                       selectedSize === size 
-                        ? 'bg-secondary text-primary shadow-[0_0_15px_rgba(204,255,0,0.4)]' 
-                        : 'bg-[#121212] border border-white/10 hover:border-secondary/50'
+                        ? 'bg-white text-black' 
+                        : 'bg-[#121212] border border-white/10 hover:border-white/50'
                     }`}
                   >
                     {size}
@@ -128,11 +128,11 @@ const ProductDetails = () => {
             {/* Badges */}
             <div className="grid grid-cols-2 gap-4">
               <div className="glass p-4 rounded-2xl flex items-center gap-3">
-                <ShieldCheck className="text-secondary" />
+                <ShieldCheck className="text-white" />
                 <span className="text-xs font-bold leading-tight">GARANTIA DE<br/>AUTENTICIDADE</span>
               </div>
               <div className="glass p-4 rounded-2xl flex items-center gap-3">
-                <Truck className="text-secondary" />
+                <Truck className="text-white" />
                 <span className="text-xs font-bold leading-tight">ENTREGA<br/>TODO BRASIL</span>
               </div>
             </div>

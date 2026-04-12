@@ -9,10 +9,12 @@ import About from './pages/About';
 import Policies from './pages/Policies';
 import { CartProvider } from './context/CartContext';
 import { MessageCircle } from 'lucide-react';
+import ScrollToTop from './components/utils/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <CartProvider>
         <div className="min-h-screen bg-primary text-light relative">
           <Header />

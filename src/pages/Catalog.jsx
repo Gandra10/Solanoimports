@@ -22,9 +22,15 @@ const Catalog = () => {
   return (
     <div className="pt-40 pb-24">
       <div className="container mx-auto px-6">
-        <div className="mb-12">
-          <h1 className="section-title">Nosso Catálogo</h1>
-          <p className="text-light/50">Explore nossa seleção exclusiva de chuteiras profissionais.</p>
+        <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <h1 className="section-title">Nosso Catálogo</h1>
+            <p className="text-light/50">Explore nossa seleção exclusiva de chuteiras profissionais.</p>
+          </div>
+          <div className="bg-white/5 border border-white/10 px-6 py-3 rounded-2xl flex items-center gap-4 animate-pulse">
+             <div className="bg-white text-black text-[10px] font-black px-2 py-1 rounded italic">OFERTA</div>
+             <p className="text-sm font-bold uppercase tracking-tighter">Leve <span className="text-white">2 por apenas R$ 600</span></p>
+          </div>
         </div>
 
         {/* Filters & Search Bar */}
