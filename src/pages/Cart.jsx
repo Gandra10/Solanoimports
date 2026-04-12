@@ -22,9 +22,9 @@ const Cart = () => {
   }
 
   return (
-    <div className="pt-32 pb-24">
+    <div className="pt-40 pb-24">
       <div className="container mx-auto px-6">
-        <h1 className="text-4xl font-display font-black uppercase mb-12 italic">Meu Carrinho</h1>
+        <h1 className="section-title tracking-tight">Meu Carrinho</h1>
         
         <div className="grid lg:grid-cols-3 gap-12">
           {/* List */}

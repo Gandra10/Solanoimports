@@ -4,15 +4,15 @@ import { Shield, Truck, RefreshCw, Lock } from 'lucide-react';
 
 const Policies = () => {
   return (
-    <div className="pt-32 pb-24">
+    <div className="pt-40 pb-24">
       <div className="container mx-auto px-6 max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-display font-black uppercase mb-4 italic">Políticas da Loja</h1>
-          <p className="text-white/50">Transparência e segurança em cada passo da sua compra.</p>
+          <h1 className="section-title">Políticas da Loja</h1>
+          <p className="text-white/50 font-medium">Transparência e segurança em cada passo da sua compra.</p>
         </motion.div>
 
         <div className="space-y-12">

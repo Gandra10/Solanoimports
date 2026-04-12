@@ -4,7 +4,7 @@ import { Target, Eye, ShieldCheck, Users } from 'lucide-react';
 
 const About = () => {
   return (
-    <div className="pt-32 pb-24">
+    <div className="pt-40 pb-24">
       <div className="container mx-auto px-6">
         {/* Hero Section About */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
@@ -13,9 +13,9 @@ const About = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-7xl font-display font-black uppercase mb-8 leading-tight italic">
+            <h1 className="section-title leading-tight">
               PAIXÃO PELO <br />
-              <span className="underline decoration-white/20">JOGO.</span>
+              <span className="opacity-40 font-black italic">JOGO.</span>
             </h1>
             <p className="text-xl text-white/70 leading-relaxed mb-8">
               A Solano Imports nasceu em Cuiabá com um objetivo claro: elevar o nível do futebol brasileiro através de equipamentos de alta performance. Não vendemos apenas chuteiras; entregamos a ferramenta para que cada jogador alcance seu potencial máximo.
@@ -96,7 +96,6 @@ const About = () => {
                   </div>
                 ))}
               </div>
-              <span className="text-sm font-bold text-white/50 uppercase tracking-widest">+5.000 Atletas Atendidos</span>
             </div>
           </div>
           {/* Decorative element */}

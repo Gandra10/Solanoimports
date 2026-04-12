@@ -1,69 +1,132 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ShoppingCart, Menu, X, Rocket } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { ShoppingCart, Menu, X, Rocket, MessageCircle } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { cartCount } = useCart();
+  const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location]);
+
+  const navLinks = [
+    { name: 'Início', path: '/' },
+    { name: 'Chuteiras', path: '/catalogo' },
+    { name: 'Sobre', path: '/sobre' },
+    { name: 'Políticas', path: '/politicas' },
+  ];
+
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass py-4' : 'bg-transparent py-6'}`}>
-      <div className="container mx-auto px-6 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-2 group">
-          <Rocket className="text-secondary w-8 h-8 group-hover:rotate-12 transition-transform" />
-          <span className="text-2xl font-display font-extrabold tracking-tighter">
-            SOLANO<span className="text-white/50 italic">IMPORTS</span>
-          </span>
-        </Link>
-
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          <Link to="/" className="hover:text-secondary transition-colors font-medium">Início</Link>
-          <Link to="/catalogo" className="hover:text-white transition-colors font-medium">Chuteiras</Link>
-          <Link to="/sobre" className="hover:text-white transition-colors font-medium">Sobre</Link>
-          <Link to="/cart" className="relative group">
-            <ShoppingCart className="group-hover:text-white transition-colors" />
-            {cartCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-secondary text-primary text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full animate-bounce">
-                {cartCount}
-              </span>
-            )}
+    <>
+      <header className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${isScrolled || isMobileMenuOpen ? 'bg-black py-4 border-b border-white/5' : 'bg-transparent py-6'}`}>
+        <div className="container mx-auto px-6 flex justify-between items-center">
+          <Link to="/" className="flex items-center gap-2 group relative z-[110]">
+            <Rocket className="text-white w-7 h-7" />
+            <span className="text-xl font-display font-black tracking-tighter uppercase">
+              Solano<span className="opacity-40 italic">Imports</span>
+            </span>
           </Link>
-        </nav>
 
-        {/* Mobile Menu Toggle */}
-        <div className="md:hidden flex items-center gap-4">
-          <Link to="/cart" className="relative">
-            <ShoppingCart className="w-6 h-6" />
-            {cartCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-secondary text-primary text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full">
-                {cartCount}
-              </span>
-            )}
-          </Link>
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-            {isMobileMenuOpen ? <X /> : <Menu />}
-          </button>
-        </div>
-      </div>
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link 
+                key={link.path} 
+                to={link.path} 
+                className={`text-[11px] uppercase tracking-[0.2em] font-black transition-all ${location.pathname === link.path ? 'text-white' : 'text-white/40 hover:text-white'}`}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <Link to="/cart" className="relative ml-4 p-2 bg-white/5 rounded-full hover:bg-white/10 transition-colors">
+              <ShoppingCart size={18} />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-white text-black text-[9px] font-black w-4 h-4 flex items-center justify-center rounded-full leading-none">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
+          </nav>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden glass absolute top-full left-0 w-full p-6 flex flex-col gap-6 animate-in slide-in-from-top duration-300">
-          <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold">Início</Link>
-          <Link to="/catalogo" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold">Chuteiras</Link>
-          <button className="btn-primary w-full mt-4">WhatsApp</button>
+          {/* Mobile menu toggle */}
+          <div className="md:hidden flex items-center gap-3 relative z-[110]">
+            <Link to="/cart" className="relative p-2 bg-white/5 rounded-full">
+              <ShoppingCart size={20} />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-white text-black text-[9px] font-black w-4 h-4 flex items-center justify-center rounded-full">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 text-white"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
-      )}
-    </header>
+      </header>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black z-[90] md:hidden flex flex-col justify-center px-10"
+          >
+            <nav className="flex flex-col gap-6">
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.path}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  <Link 
+                    to={link.path} 
+                    className="text-4xl font-display font-black uppercase italic tracking-tight hover:opacity-50"
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="mt-16 pt-10 border-t border-white/5 flex flex-col gap-6"
+            >
+              <a 
+                href="https://wa.me/5565996992910" 
+                target="_blank"
+                rel="noreferrer"
+                className="w-full py-4 bg-white text-black font-display font-black text-center rounded-full flex items-center justify-center gap-3"
+              >
+                <MessageCircle size={20} /> WHATSAPP
+              </a>
+              <p className="text-[10px] text-white/30 uppercase tracking-[0.3em] text-center font-bold">Solano Imports © 2026</p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

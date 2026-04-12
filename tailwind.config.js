@@ -8,8 +8,8 @@ export default {
     extend: {
       colors: {
         primary: "#000000",
-        secondary: "#CCFF00", // Neon Green
-        accent: "#00F0FF",    // Neon Blue (optional second accent)
+        secondary: "#FFFFFF", 
+        accent: "#F5F5F7",
         dark: "#121212",
         light: "#FFFFFF",
       },

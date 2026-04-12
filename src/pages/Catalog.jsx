@@ -20,10 +20,10 @@ const Catalog = () => {
   }, [searchTerm, filterType, sortBy]);
 
   return (
-    <div className="pt-32 pb-24">
+    <div className="pt-40 pb-24">
       <div className="container mx-auto px-6">
         <div className="mb-12">
-          <h1 className="text-5xl font-display font-black uppercase mb-4 tracking-tighter">Nosso Catálogo</h1>
+          <h1 className="section-title">Nosso Catálogo</h1>
           <p className="text-light/50">Explore nossa seleção exclusiva de chuteiras profissionais.</p>
         </div>
 

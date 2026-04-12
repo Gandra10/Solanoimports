@@ -6,33 +6,35 @@
 
 @layer base {
   body {
-    @apply bg-primary text-light font-sans selection:bg-secondary selection:text-primary;
+    @apply bg-black text-white font-sans overflow-x-hidden;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply px-8 py-3 bg-secondary text-primary font-bold rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(204,255,0,0.4)] hover:shadow-[0_0_30px_rgba(204,255,0,0.6)];
+    @apply px-8 py-4 bg-white text-black font-display font-black rounded-full transition-all duration-300 hover:scale-105 active:scale-95 uppercase tracking-widest text-sm flex items-center justify-center gap-2;
   }
   
   .glass {
-    @apply bg-white bg-opacity-5 backdrop-blur-lg border border-white border-opacity-10;
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
   }
 
   .neon-text {
-    @apply text-secondary drop-shadow-[0_0_8px_rgba(204,255,0,0.6)];
+    @apply text-[#CCFF00] drop-shadow-[0_0_8px_rgba(204,255,0,0.4)];
   }
 
-  .neon-border {
-    @apply border-secondary shadow-[0_0_10px_rgba(204,255,0,0.4)];
+  .section-title {
+    @apply text-4xl md:text-6xl font-display font-black uppercase italic tracking-tighter mb-8 text-white;
   }
 }
 
-.gradient-bg {
-  background: radial-gradient(circle at top right, rgba(204, 255, 0, 0.1), transparent),
-              radial-gradient(circle at bottom left, rgba(0, 240, 255, 0.05), transparent);
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
-
-.product-card-hover {
-  @apply transition-transform duration-500 hover:-translate-y-2;
+::-webkit-scrollbar-track {
+  @apply bg-black;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
 }
