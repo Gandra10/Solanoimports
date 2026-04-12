@@ -254,7 +254,7 @@ const Cart = () => {
 
                         <div className="grid md:grid-cols-2 gap-6">
                            <div className="space-y-2 relative">
-                              <label className="text-[10px] font-black uppercase tracking-widest text-white/50">Seu Bairro em Cuiabá</label>
+                              <label className="text-[10px] font-black uppercase tracking-widest text-white/50">Seu Bairro</label>
                               <div className="relative">
                                 <input 
                                   required

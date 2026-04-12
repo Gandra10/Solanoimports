@@ -68,7 +68,7 @@ function App() {
               <div>
                 <h4 className="font-bold uppercase tracking-widest text-sm mb-6">Suporte</h4>
                 <div className="flex flex-col gap-4 text-light/50 font-medium">
-                  <p>Cuiabá - MT</p>
+                  <p>Goiânia - GO</p>
                   <p>(65) 99699-2910</p>
                   <p>contato@solanoimports.com</p>
                 </div>
