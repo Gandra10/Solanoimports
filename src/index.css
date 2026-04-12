@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-primary text-light font-sans selection:bg-secondary selection:text-primary;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-8 py-3 bg-secondary text-primary font-bold rounded-full transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(204,255,0,0.4)] hover:shadow-[0_0_30px_rgba(204,255,0,0.6)];
+  }
+  
+  .glass {
+    @apply bg-white bg-opacity-5 backdrop-blur-lg border border-white border-opacity-10;
+  }
+
+  .neon-text {
+    @apply text-secondary drop-shadow-[0_0_8px_rgba(204,255,0,0.6)];
+  }
+
+  .neon-border {
+    @apply border-secondary shadow-[0_0_10px_rgba(204,255,0,0.4)];
+  }
+}
+
+.gradient-bg {
+  background: radial-gradient(circle at top right, rgba(204, 255, 0, 0.1), transparent),
+              radial-gradient(circle at bottom left, rgba(0, 240, 255, 0.05), transparent);
+}
+
+.product-card-hover {
+  @apply transition-transform duration-500 hover:-translate-y-2;
+}
