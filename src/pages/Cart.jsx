@@ -367,9 +367,10 @@ const Cart = () => {
                       >
                          <MapPin className="text-white shrink-0" />
                          <div>
-                            <p className="font-bold text-sm uppercase">Retirada em Cuiabá - MT</p>
+                            <p className="font-bold text-sm uppercase">Retirada em Goiânia - GO</p>
                             <p className="text-xs text-white/50 leading-relaxed mt-1">
-                               Doca 10, Galpão de Distribuição (Entraremos em contato para agendar o horário e passar a localização exata no WhatsApp).
+                               Av Copacabana, 135 - Jardim Atlântico. <br />
+                               (Entraremos em contato via WhatsApp para confirmar o horário da sua retirada).
                             </p>
                          </div>
                       </motion.div>
