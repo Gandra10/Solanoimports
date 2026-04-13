@@ -74,7 +74,7 @@ const Home = () => {
           
           <div className="flex justify-center">
             {[
-              { title: "Campo", img: "/campo.png", count: "8 modelos" }
+              { title: "Campo", img: "/campo.png", count: "16 modelos" }
             ].map((cat, i) => (
               <Link key={i} to={`/catalogo?type=${cat.title.toLowerCase()}`} className="group relative h-80 w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl">
                 <img src={cat.img} alt={cat.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
