@@ -2,7 +2,7 @@ export const products = [
   {
     id: 1,
     name: "Mizuno Morelia Neo IV Beta Japan",
-    price: 315.00,
+    price: 0.02,
     category: "Campo",
     image: "https://mizunobr.vtexassets.com/arquivos/ids/251801-800-800?v=638557035680600000&width=800&height=800&aspect=true",
     description: "A excelência japonesa em forma de chuteira. Couro de canguru premium para um toque incomparável e leveza absoluta.",

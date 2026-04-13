@@ -35,7 +35,7 @@ function App() {
             <div className="container mx-auto px-6 grid md:grid-cols-4 gap-12">
               <div className="col-span-2">
                 <span className="text-3xl font-display font-black tracking-tighter mb-6 block">
-                  SOLANO<span className="text-white/50 italic">IMPORTS</span>
+                  SOLANO<span className="text-white/50 italic">SPORT</span>
                 </span>
                 <p className="text-light/50 max-w-sm mb-8 leading-relaxed">
                   Referência nacional em tecnologia de chuteiras. Trazemos o que há de melhor no mundo do futebol para elevar seu desempenho.
@@ -70,12 +70,12 @@ function App() {
                 <div className="flex flex-col gap-4 text-light/50 font-medium">
                   <p>Goiânia - GO</p>
                   <p>(65) 99699-2910</p>
-                  <p>contato@solanoimports.com</p>
+                  <p>Joe_solano@hotmail.com</p>
                 </div>
               </div>
             </div>
             <div className="container mx-auto px-6 mt-16 pt-8 border-t border-white/5 text-center text-xs text-light/30">
-              © 2026 SOLANO IMPORTS. TODOS OS DIREITOS RESERVADOS.
+              © 2026 SOLANO SPORT. TODOS OS DIREITOS RESERVADOS.
             </div>
           </footer>
 

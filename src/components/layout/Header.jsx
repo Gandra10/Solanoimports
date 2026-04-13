@@ -35,7 +35,7 @@ const Header = () => {
           <Link to="/" className="flex items-center gap-2 group relative z-[110]">
             <Rocket className="text-white w-7 h-7" />
             <span className="text-xl font-display font-black tracking-tighter uppercase">
-              Solano<span className="opacity-40 italic">Imports</span>
+              Solano<span className="opacity-40 italic">Sport</span>
             </span>
           </Link>
 
@@ -121,7 +121,7 @@ const Header = () => {
               >
                 <MessageCircle size={20} /> WHATSAPP
               </a>
-              <p className="text-[10px] text-white/30 uppercase tracking-[0.3em] text-center font-bold">Solano Imports © 2026</p>
+              <p className="text-[10px] text-white/30 uppercase tracking-[0.3em] text-center font-bold">Solano Sport © 2026</p>
             </motion.div>
           </motion.div>
         )}

@@ -131,7 +131,7 @@ const Cart = () => {
       ? '🛍️ RETIRADA NA LOJA' 
       : `🚀 ENTREGA\n📌 Rua: ${shippingInfo.rua}, ${shippingInfo.numero}\n🏘️ Bairro: ${shippingInfo.bairro}\n📱 Telefone: ${shippingInfo.telefone}\n💰 Frete: ${isFreeShipping ? 'Grátis' : 'R$ ' + shippingFee}`;
 
-    const message = `🚀 *NOVO PEDIDO - SOLANO IMPORTS*\n\n` +
+    const message = `🚀 *NOVO PEDIDO - SOLANO SPORT*\n\n` +
       `📦 *PRODUTOS:*\n` +
       cart.map(item => `• ${item.name} (${item.size}) x${item.quantity}`).join('\n') +
       `\n\n${deliveryDetail}` +

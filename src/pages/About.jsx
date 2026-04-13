@@ -18,7 +18,7 @@ const About = () => {
               <span className="opacity-40 font-black italic">JOGO.</span>
             </h1>
             <p className="text-xl text-white/70 leading-relaxed mb-8">
-              A Solano Imports nasceu em Cuiabá com um objetivo claro: elevar o nível do futebol brasileiro através de equipamentos de alta performance. Não vendemos apenas chuteiras; entregamos a ferramenta para que cada jogador alcance seu potencial máximo.
+              A Solano Sport nasceu com um objetivo claro: elevar o nível do futebol brasileiro através de equipamentos de alta performance. Não vendemos apenas chuteiras; entregamos a ferramenta para que cada jogador alcance seu potencial máximo.
             </p>
             <div className="flex flex-col gap-4 text-white/50 font-medium">
               <p>✓ Especialistas em tecnologias de tração e conforto.</p>
