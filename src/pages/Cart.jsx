@@ -3,6 +3,7 @@ import { useCart } from '../context/CartContext';
 import { Trash2, Plus, Minus, ShoppingBag, ArrowRight, Lock, Copy, CheckCircle2, ArrowLeft, Truck, Store, MapPin, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 
 // Dicionário de Bairros de Cuiabá/VG para cálculo automático
 const BAIRROS_DATA = [
@@ -117,9 +118,33 @@ const Cart = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const sendOrderEmail = async () => {
+    const productsList = cart.map(item => `${item.name} (Tam: ${item.size}) x${item.quantity} - R$ ${(item.price * item.quantity).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`).join('\n');
+    const deliveryInfo = deliveryMethod === 'pickup' 
+      ? 'RETIRADA NA LOJA' 
+      : `ENTREGA - Rua: ${shippingInfo.rua}, ${shippingInfo.numero} - Bairro: ${shippingInfo.bairro} - Tel: ${shippingInfo.telefone} - Frete: R$ ${shippingFee}`;
+
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'SUA_CHAVE_AQUI',
+          subject: `🚀 Novo Pedido - Solano Sport - R$ ${cartTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`,
+          from_name: 'Solano Sport - Loja',
+          to_name: 'Solano',
+          message: `NOVO PEDIDO RECEBIDO!\n\nPRODUTOS:\n${productsList}\n\n${deliveryInfo}\n\nPAGAMENTO: ${paymentMethod}\nTOTAL: R$ ${cartTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`
+        })
+      });
+    } catch (err) {
+      console.log('Email não enviado:', err);
+    }
+  };
+
   const handleFinalPayment = (e) => {
     if (e) e.preventDefault();
     setIsProcessing(true);
+    sendOrderEmail();
     setTimeout(() => {
       setIsProcessing(false);
       setIsSuccess(true);

@@ -98,6 +98,66 @@ export const products = [
     description: "Precisão em cada toque. A Phantom GX foi criada para os jogadores que definem o ritmo do jogo com passes perfeitos.",
     details: ["Tecnologia Gripknit", "Zona de Chute Otimizada", "Padrão de Travas Tri-star", "Agilidade Superior"],
     sizes: [37, 38, 39, 40, 41, 42, 43, 44]
+  },
+  {
+    id: 11,
+    name: "Nike Air Zoom Mercurial Vapor 16 Elite",
+    price: 315.00,
+    category: "Campo",
+    image: "https://shoxstore.com.br/wp-content/uploads/2024/08/8ad85c05resultado.jpg",
+    description: "A evolução da velocidade com tecnologia Air Zoom para resposta máxima.",
+    details: ["Tecnologia Air Zoom", "Gripknit superior", "Tração Multidirecional", "Campo (FG)"],
+    sizes: [37, 38, 39, 40, 41, 42, 43, 44]
+  },
+  {
+    id: 12,
+    name: "Nike Phantom 6 Pro Low",
+    price: 315.00,
+    category: "Campo",
+    image: "https://shoxstore.com.br/wp-content/uploads/2023/03/npgxefgbz_1.jpg",
+    description: "Precisão em cada passe com um ajuste confortável e design de perfil baixo.",
+    details: ["Design Low", "Controle de Bola Aprimorado", "Conforto Superior", "Campo (FG)"],
+    sizes: [37, 38, 39, 40, 41, 42, 43, 44]
+  },
+  {
+    id: 13,
+    name: "Chuteira Nike Mercurial",
+    price: 315.00,
+    category: "Campo",
+    image: "https://shoxstore.com.br/wp-content/uploads/2025/09/615f2db2resultado.jpg",
+    description: "A clássica linha Mercurial, feita para jogadores velozes e decisivos.",
+    details: ["Design Aerodinâmico", "Leveza", "Ajuste Confortável", "Campo (FG)"],
+    sizes: [37, 38, 39, 40, 41, 42, 43, 44]
+  },
+  {
+    id: 14,
+    name: "Nike Mercurial Vapor 16 Elite (Verde)",
+    price: 315.00,
+    category: "Campo",
+    image: "https://shoxstore.com.br/wp-content/uploads/2024/08/8ad85c05resultado.jpg",
+    description: "Destaque-se em campo com a cor verde vibrante e a performance inigualável da Vapor 16.",
+    details: ["Cor Verde Exclusiva", "Gripknit", "Air Zoom", "Campo (FG)"],
+    sizes: [37, 38, 39, 40, 41, 42, 43, 44]
+  },
+  {
+    id: 15,
+    name: "Nike Zoom Mercurial Vapor 16 Pro",
+    price: 315.00,
+    category: "Campo",
+    image: "https://shoxstore.com.br/wp-content/uploads/2025/09/615f2db2resultado.jpg",
+    description: "Performance profissional para quem busca agilidade e conforto em campo.",
+    details: ["Sola com Zoom Air", "Cabedal Resistente", "Design Otimizado", "Campo (FG)"],
+    sizes: [37, 38, 39, 40, 41, 42, 43, 44]
+  },
+  {
+    id: 16,
+    name: "Nike Zoom Mercurial Vapor 16 Elite FG (Rosa)",
+    price: 315.00,
+    category: "Campo",
+    image: "https://shoxstore.com.br/wp-content/uploads/2024/08/8ad85c05resultado.jpg",
+    description: "Ousadia e tecnologia se encontram nesta edição rosa da linha Mercurial Vapor 16 Elite.",
+    details: ["Cor Rosa (Pink Blast)", "Gripknit", "Air Zoom", "Campo (FG)"],
+    sizes: [37, 38, 39, 40, 41, 42, 43, 44]
   }
 ];
 
