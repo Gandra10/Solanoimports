@@ -44,7 +44,7 @@ const Home = () => {
           {/* Social Proof / Stats */}
           <div className="hidden lg:flex flex-col gap-6 items-end">
             {[
-              { label: "Modelos Exclusivos", value: "150+" },
+              { label: "Qualidade Premium", value: "100%" },
               { label: "Envio Nacional", value: "100%" }
             ].map((stat, i) => (
               <motion.div 
