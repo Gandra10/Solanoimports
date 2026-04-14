@@ -125,23 +125,24 @@ const Cart = () => {
       : `ENTREGA - Rua: ${shippingInfo.rua}, ${shippingInfo.numero} - Bairro: ${shippingInfo.bairro} - Tel: ${shippingInfo.telefone} - Frete: R$ ${shippingFee}`;
 
     try {
-      await fetch('https://api.resend.com/emails', {
+      await fetch('/api/send-email', {
         method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer re_MLKDi8Qr_N1vgNbUSzynCYGdYgdBrUGKm'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          from: 'onboarding@resend.dev',
           to: 'Joe_solano@hotmail.com',
           subject: `🚀 Novo Pedido - Solano Sport - R$ ${cartTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`,
           html: `
-            <h2>NOVO PEDIDO RECEBIDO!</h2>
-            <p><strong>PRODUTOS:</strong></p>
-            <pre>${productsList}</pre>
-            <p><strong>ENTREGA:</strong> ${deliveryInfo}</p>
-            <p><strong>PAGAMENTO:</strong> ${paymentMethod}</p>
-            <h3>TOTAL: R$ ${cartTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</h3>
+            <div style="font-family: sans-serif; color: #333;">
+              <h2 style="color: #000;">🚀 NOVO PEDIDO RECEBIDO!</h2>
+              <hr/>
+              <p><strong>📦 PRODUTOS:</strong></p>
+              <pre style="background: #f4f4f4; padding: 10px; border-radius: 5px;">${productsList}</pre>
+              <p><strong>📍 ENTREGA:</strong> ${deliveryInfo}</p>
+              <p><strong>💳 PAGAMENTO:</strong> ${paymentMethod}</p>
+              <h3 style="color: #000; font-size: 20px;">💰 TOTAL: R$ ${cartTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</h3>
+              <hr/>
+              <p style="font-size: 12px; color: #888;">Mensagem enviada automaticamente pela loja Solano Sport.</p>
+            </div>
           `
         })
       });
