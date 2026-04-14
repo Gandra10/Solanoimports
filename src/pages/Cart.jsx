@@ -125,15 +125,24 @@ const Cart = () => {
       : `ENTREGA - Rua: ${shippingInfo.rua}, ${shippingInfo.numero} - Bairro: ${shippingInfo.bairro} - Tel: ${shippingInfo.telefone} - Frete: R$ ${shippingFee}`;
 
     try {
-      await fetch('https://api.web3forms.com/submit', {
+      await fetch('https://api.resend.com/emails', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer re_MLKDi8Qr_N1vgNbUSzynCYGdYgdBrUGKm'
+        },
         body: JSON.stringify({
-          access_key: 'SUA_CHAVE_AQUI',
+          from: 'onboarding@resend.dev',
+          to: 'Joe_solano@hotmail.com',
           subject: `🚀 Novo Pedido - Solano Sport - R$ ${cartTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`,
-          from_name: 'Solano Sport - Loja',
-          to_name: 'Solano',
-          message: `NOVO PEDIDO RECEBIDO!\n\nPRODUTOS:\n${productsList}\n\n${deliveryInfo}\n\nPAGAMENTO: ${paymentMethod}\nTOTAL: R$ ${cartTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`
+          html: `
+            <h2>NOVO PEDIDO RECEBIDO!</h2>
+            <p><strong>PRODUTOS:</strong></p>
+            <pre>${productsList}</pre>
+            <p><strong>ENTREGA:</strong> ${deliveryInfo}</p>
+            <p><strong>PAGAMENTO:</strong> ${paymentMethod}</p>
+            <h3>TOTAL: R$ ${cartTotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</h3>
+          `
         })
       });
     } catch (err) {
